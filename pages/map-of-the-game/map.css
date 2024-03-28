@@ -1,0 +1,7 @@
+.map-main-container {
+    background: #060d28;
+    width: 100%;
+    max-width: none;
+    overflow: hidden;
+    min-height: 115vh !important;
+}

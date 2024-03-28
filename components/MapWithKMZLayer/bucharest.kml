@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Untitled</name>
+	<Schema name="__managed_schema" id="__managed_schema">
+		<SimpleField type="int" name="template-field/google/usePhotoAsBackgroundImage-integer">
+			<displayName>usePhotoAsBackgroundImage</displayName>
+			<gx:fieldAlias>usePhotoAsBackgroundImage</gx:fieldAlias>
+			<gx:fieldDefault>0</gx:fieldDefault>
+		</SimpleField>
+	</Schema>
+	<gx:CascadingStyle kml:id="__managed_style_19446486792F95F8BACB">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.0.26.0/slide_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<bgColor>ff4f4737</bgColor>
+				<gx:displayMode>fullscreen</gx:displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_0628B7802D2F95F8BACC">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.0.26.0/slide_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<bgColor>ff4f4737</bgColor>
+				<gx:displayMode>fullscreen</gx:displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_0347A4A66C2F95F8BACB">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_19446486792F95F8BACB</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_0628B7802D2F95F8BACC</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark id="013D121BDF2F95F8BAC6">
+		<name>map</name>
+		<styleUrl>#__managed_style_0347A4A66C2F95F8BACB</styleUrl>
+		<ExtendedData>
+			<SchemaData schemaUrl="#__managed_schema">
+				<SimpleData name="template-field/google/usePhotoAsBackgroundImage-integer">1</SimpleData>
+			</SchemaData>
+		</ExtendedData>
+		<gx:Carousel>
+			<gx:Image kml:id="hosted_image_QUhVR0tncUdRc211R0lmTzNjaW9oY0d0NEpwREZOVnNvWEhHTXNVb3ZmUnB3S1VRV0FIUUtuUy9sdGhzWDU2MXorMjJTckpIUVQ5cXM1SmxjUXJLTndIb3VTaFE0SE1ERG5HRXg0RmlUQ3FjaXhISFBRSWlJNEFkSERrQS9oQkExRENlYjUwaFBPVUNoUm9EZEdyTGpSdUo4SFJMRTZkSWtZbkZRa2pTVVZxV3ZTbFhjZzdBRHBiQ3pmNElYWlpBT3NEa0thS2RWY2dISHo1S1loNm1rSnJXekZvYTY3ei80alZFMWR1VXZZeEpXUlZaTFEwY2VhVmF6U3d2NEc3ZTJoTGh3ZitoWWxkUzBwN0V1N3JVMEptb3p2OXorZ01nRktSSw">
+				<gx:ImageUrl>https://doc-0k-60-mymaps.googleusercontent.com/untrusted/hostedimage/e/1s7r3qb67sivqj52hreb3l11os/955p5f1u9hiq1ju3ips6ldtsf4/1711017109750/Er7bjt0JAN6SN2qgDz7kKT3DiQFNu-ZH/07097812549104817924/5AHUGKgqSRqS_vRPd3hTcrayj8MtuTGvaw9XJUp00UruQH9YhLSvRW3J7EYDaDwjL8JmP8X6KI5-WFdndEdtFhsLNUPaOuRbJfxmfOoDQZBKtYr1TQq3y-8KfrOcKg84AW9ZYvVwxyWEj9qX_zGDJw742_QtN6fXT5UnWpe4tzy3ZLjvyyDkfn9qA_j6ZszsN_YBwHzoSB3fhX8xDOZfjNex8UFWalNauacAp4ymrgGxWfszh9rrr4g?session=0&amp;fife=s{size}</gx:ImageUrl>
+			</gx:Image>
+		</gx:Carousel>
+	</Placemark>
+</Document>
+</kml>

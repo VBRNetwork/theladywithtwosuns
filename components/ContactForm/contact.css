@@ -1,0 +1,30 @@
+.contact-form-container {
+    margin-top: 10rem !important;
+}
+
+.contact-inputs {
+    width: 100% !important;
+    height: 3rem !important;
+    border-radius: 10px !important;
+    padding: 1rem !important;
+    background: #020202 !important;
+    border: solid #0cc89b !important;
+    color: #FFF !important;
+}
+
+.contact-textarea {
+    border-radius: 10px !important;
+    padding: 1rem !important;
+    background: #020202 !important;
+    border: solid #0cc89b !important;
+    color: #FFF !important;
+}
+
+.contact-btn {
+    margin-top: 2rem !important;
+    border-radius: 10px !important;
+    width: 15rem !important;
+    height: 3rem !important;
+    color: #FFF !important;
+    border: solid 1px #FFF !important;
+}

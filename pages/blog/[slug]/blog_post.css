@@ -1,0 +1,17 @@
+.blog-main-container {
+    padding: 5rem !important;
+    background-color: aliceblue !important;
+    border-radius: 20px !important;
+    margin-top: 5rem !important;
+}
+
+.blog-main-title {
+    color: rgb(16, 51, 113) !important;
+    font-size: 3rem !important;
+}
+
+.blog-category-title {
+    color: #ed2024 !important;
+    font-size: 1.5rem !important;
+    margin-bottom: 5rem !important;
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<GroundOverlay>
+	<name>Harta Bucuresti 1921 - Planul Mihai Pantea</name>
+	<Icon>
+		<href>files/Harta Bucuresti 1921 - Planul Mihai Pantea.jpg</href>
+		<viewBoundScale>0.75</viewBoundScale>
+	</Icon>
+	<LatLonBox>
+		<north>44.47054630381867</north>
+		<south>44.39253190104298</south>
+		<east>26.16127588037344</east>
+		<west>26.03458410694528</west>
+		<rotation>-0.7346836328506471</rotation>
+	</LatLonBox>
+</GroundOverlay>
+</kml>
