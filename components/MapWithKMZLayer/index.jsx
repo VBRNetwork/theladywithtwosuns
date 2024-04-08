@@ -34,7 +34,7 @@ const MapWithKMZLayer = ({ kmzUrl }) => {
     // Define initMap globally
     window.initMap = () => {
       const map = new window.google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
+        zoom: 13,
         center: { lat: 44.4268, lng: 26.1025 },
       });
       const kmlLayer = new window.google.maps.KmlLayer({
@@ -69,7 +69,7 @@ const MapWithKMZLayer = ({ kmzUrl }) => {
     };
   }, [kmzUrl]);
 
-  return <div id="map" style={{ height: '500px' }} />;
+  return <div id="map" style={{ height: '120vh' }} />;
 };
 
 export default MapWithKMZLayer;

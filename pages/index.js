@@ -1,186 +1,195 @@
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { useMutation } from "react-query";
-import { isMobile } from "react-device-detect";
 import {
-	Container,
-	Backdrop,
-	CircularProgress,
-	Box,
-	Typography,
-	Stack,
-	Button,
+    Container,
+    Backdrop,
+    CircularProgress,
+    Box,
+    Typography,
+    Stack,
+    Button,
 } from "@mui/material";
+import { Form } from "semantic-ui-react";
 import TextTransition, { presets } from 'react-text-transition';
-import { Partners } from "../components/Partners";
-import { ProjectsNumber } from "../components/ProjectsNumber";
-import { AboutUs } from "../components/AboutUs";
-import { NewHeader } from "../components/NewHeader";
-import { HeroSection } from "../components/HeroSection";
-import { Services } from "../components/Services";
-import { Team } from "../components/Team";
-import { Footer } from "../components/Footer";
-import axios from "axios";
-import { ContactForm } from "../components/ContactForm";
 import { toast } from "react-toastify";
 
-const addContactMessage = async (data) => {
-	const res = await fetch("http://localhost:8080/api/contact/contact-form/", {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify(data),
-	});
 
-	if (!res.ok) {
-		if (res.status === 429) {
-			toast.error("Rate limit exceeded", {
-				icon: "⏃",
-			});
-			throw new Error("Rate limit exceeded");
-		}
+export default function Home() {
 
-		const error = await res.json();
-		if (error.details) {
-			toast.error(error.details, {
-				icon: "⏃",
-			});
-			throw new Error(error.details);
-		}
+    const [showBeginJourney, setShowBeginJourney] = React.useState(false);
+	const [showBackdrop, setShowBackdrop] = React.useState(false);
+	const [showInput, setShowInput] = React.useState(true);
 
-		if (error.non_field_errors) {
-			toast.error(error.non_field_errors[0], {
-				icon: "⏃",
-			});
-			throw new Error(error.non_field_errors[0]);
-		}
-		toast.error("Something went wrong", {
-			icon: "⏃",
-		});
-		throw new Error("Something went wrong");
-	}
+    const [numberOfDays, setNumberOfDays] = React.useState('');
+    const correctNumberOfDays = '22';
 
-	toast.done("Message Sent")
-	return await res.json();
-};
+	const [personStatute, setPersonStatute] = React.useState('');
+	const correctPersonStatute = 'Princess';
 
-// export async function getServerSideProps() {
-// 	const [ priorityJobsRes, pricingPacksRes ] = await Promise.all([
-// 		axios.get("http://localhost/api/priority-jobs"),
-// 		axios.get("http://localhost/api/pricing-packs"),
-// 	]);
-// 	const [ priorityJobs, pricingPacks ] = await Promise.all([
-// 		priorityJobsRes.data,
-// 		pricingPacksRes.data,
-// 	]);
-// 	return {
-// 		props: {
-// 			priorityJobs,
-// 			pricingPacks,
-// 		},
-// 	};
-// }
+    const handleChangeNumberOfDays = (e) => {
+        setNumberOfDays(e.target.value);
+    };
 
-export default function Home({  }) {
-
-	const contactMessageRef = React.useRef(null);
-	const { isSuccess, isLoading, mutate } = useMutation(addContactMessage, {
-		onSuccess: () => {
-			toast.success("Message Sent Successfully !", {
-				icon: "⏃",
-			});
-			console.log("success");
-		},
-		onError: () => {
-			console.log("error");
-		},
-		onSettled: () => {
-			console.log("settled");
-		},
-	});
-
-	const [supportMessage, setSupportMessage] = React.useState({
-		name: "",
-		email: "",
-		company: "",
-		support_message: "",
-	});
-
-	const handleSupportMessageChange = (e) => {
-		setSupportMessage({ ...supportMessage, [e.target.name]: e.target.value });
+	const handleChangePersonStatute = (e) => {
+		setPersonStatute(e.target.value);
 	};
 
-	const submitMessage = async () => {
-		mutate(supportMessage);
-		setSupportMessage({
-			name: "",
-			email: "",
-			company: "",
-			support_message: "",
-		});
-	};
+    const showBeginJourneyFunc = () => {
+        if (numberOfDays !== correctNumberOfDays) {
+            toast.error("Incorrect Number of Days", {
+                icon: "⏃",
+            });
+            return;
+        }
+        setShowBeginJourney(true);
+    }
 
-	if (isLoading) {
-		return (
-			<Backdrop
-				sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-				open={true}
-			>
-				<CircularProgress color="inherit" />
-			</Backdrop>
-		);
+	const showInputFunc = () => {
+		if (personStatute !== correctPersonStatute) {
+			toast.error("Incorrect Person Statute", {
+				icon: "⏃",
+			});
+			return;
+		}
+		setShowInput(true);
 	}
 
-	return (
-		<>
-			<Head>
-				<title>VBR Labs</title>
-				<meta name="description" content={"VBR Labs"} />
-				{/* <meta
-					name="keywords"
-					content={""}
-				/> */}
-				{/* <meta property="og:image" content="https://i.imgur.com/Gi6hQFM.png" /> */}
-				{/* <meta property="og:image" content={data.seo.image} /> */}
-				{/* <meta property="og:title" content={data.seo.title} /> */}
-				<meta property="og:description" content={"VBR Labs"} />
-				{/* <meta property="og:url" content={data.seo.url} /> */}
-				<meta property="og:type" content="website" />
-				<meta property="og:site_name" content={"VBR Labs"} />
-				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
-			<Container className="home-main-container">
-				<img
-					src="images/frame.png"
-					className="landing-frame"
-				/>
-				<img
-					src="images/landing.jpg"
-					className="landing-img"
-				/>
-				<Box className="landing-box">
-					<TextTransition className="landing-text" springConfig={presets.wobbly}>
-						Welcome to the second phase
-						of our game, <br />
-						<Box style={{ textAlign: 'center' }}>
-							<span style={{ textAlign: "center" }}>
-								My Love !
-							</span>
-						</Box>
-					</TextTransition>
-				</Box>
-				<Button
-					className="landing-btn"
-					variant="contained"
-					component="a"
-					href="/map-of-the-game"
+	useEffect(() => {
+		setShowBackdrop(true);
+		setTimeout(() => {
+			setShowBackdrop(false);
+		}, 1000);
+	}, []);
+
+    return (
+        <>
+            <Head>
+                <title>The Lady With 2 Suns</title>
+                <meta name="description" content={"The Lady With 2 Suns"} />
+                <meta property="og:description" content={"The Lady With 2 Suns"} />
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content={"The Lady With 2 Suns"} />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
+            <Container className="home-main-container">
+				<Backdrop
+					sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+					open={showBackdrop}
 				>
-					Begin Your Journey
-				</Button>
-			</Container>
-		</>
-	);
+					<CircularProgress color="inherit" />
+				</Backdrop>
+                <img
+                    src="images/frame.png"
+                    className="landing-frame"
+                />
+                <img
+                    src="images/landing.jpg"
+                    className="landing-img"
+                />
+                <Box className="landing-box">
+                    <Typography component="div" className="landing-text">
+                        Welcome to the second phase
+                        of our game, <br />
+                        <Box style={{ textAlign: 'center' }}>
+                            <span style={{ textAlign: "center" }}>
+                                My Love !
+                            </span>
+                        </Box>
+                    </Typography>
+                </Box>
+				{!showBeginJourney && showInput &&  personStatute !== correctPersonStatute && (
+					<>
+						<Form>
+							<input
+								type="password"
+								className="show-input-input"
+								fluid
+								placeholder='Input Your Statute Here'
+								name="personStatute"
+								id="personStatute"
+								value={personStatute}
+								onChange={handleChangePersonStatute}
+							/>
+						</Form>
+						{/* <Box style={{ marginTop: '-13rem', marginLeft: '8rem' }}>
+							<Button
+								variant="contained"
+								className="landing-submit-btn"
+								onClick={showInputFunc}
+							>
+								Submit
+							</Button>s
+						</Box> */}
+					</>
+				)}
+				{!showBeginJourney && personStatute === correctPersonStatute && (
+					<>
+						<Typography className="before-btn-text" variant="p">
+                            Please enter the number of days since we first met up until we kissed first time
+                        </Typography>
+					</>
+				)}
+                {showBeginJourney && personStatute === correctPersonStatute && (
+                    <>
+                        <Button
+                            className="landing-btn"
+                            variant="contained"
+                            component="a"
+                            href="/map-of-the-game"
+                        >
+                            Begin Your Journey
+                        </Button>
+                    </>
+                )}
+                <Box style={{ marginTop: '6rem' }}>
+                    {personStatute === correctPersonStatute && (
+						<>
+							{!showBeginJourney ? (
+						<>
+							<Form>
+								<input
+									type="password"
+									className="show-btn-input"
+									fluid
+									placeholder='Number of days since we first met up until we kissed first time'
+									name="numberOfDays"
+									id="numberOfDays"
+									value={numberOfDays}
+									onChange={handleChangeNumberOfDays}
+								/>
+                    		</Form>
+							<Box style={{ marginTop: '1rem' }}>
+								<Button
+									className="landing-submit-btn"
+									variant="contained"
+									onClick={showBeginJourneyFunc}
+								>
+									Submit
+								</Button>
+							</Box>
+						</>
+					) : (
+						<>
+							<Typography
+								style={{
+									color:'#d5a04e',
+									fontStyle: 'italic',
+									fontWeight: '700',
+								}}
+								variant="p"
+							>
+								You have entered the correct number of days. <br />
+								Please click on the button below 
+								to begin your journey.
+							</Typography>
+						</>
+					)}
+						</>
+					)}
+                </Box>
+            </Container>
+        </>
+    );
 }

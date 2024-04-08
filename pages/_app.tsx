@@ -7,8 +7,6 @@ import "../styles/toast.css";
 import "./home.css";
 import './blog/[slug]/blog_post.css';
 import './map-of-the-game/map.css';
-import '../components/NewHeader/new-header.css';
-import '../components/ContactForm/contact.css';
 import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
 import 'semantic-ui-css/semantic.min.css'
 import { QueryClientProvider, QueryClient } from "react-query";

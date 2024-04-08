@@ -77,3 +77,118 @@
 .landing-text {
     color: #092282 !important;
 }
+
+@media screen and (max-width: 768px) {
+    .landing-img {
+        width: 100% !important;
+        height: fit-content !important;
+        margin-left: 0rem !important;
+        border-radius: 20px !important;
+        border-radius: 20px !important;
+        box-shadow: rgb(0, 130, 244) 0px 15px 30px 0px !important;
+        margin-top: 7rem !important;
+    }
+
+    .landing-frame {
+        position: absolute !important;
+        width: 100% !important;
+        left: 0rem !important;
+        top: 2rem !important;
+        height: 76vh !important;
+    }
+
+    .left-corner {
+        position: absolute !important;
+        width: 100% !important;
+        left: 0rem !important;
+        top: -1rem !important;
+    }
+
+    .landing-btn {
+        background: #d5a04e !important;
+        position: absolute !important;
+        top: 29rem !important;
+        left: 8.5rem !important;
+        height: 3rem !important;
+        font-weight: 700 !important;
+        border-radius: 10px !important;
+        padding: 2rem !important;
+    }
+
+    .landing-btn:hover {
+        background: #FFF !important;
+        color: #d5a04e !important;
+        position: absolute !important;
+        left: 8.5rem !important;
+        height: 3rem !important;
+        font-weight: 700 !important;
+        border-radius: 10px !important;
+        padding: 2rem !important;
+    }
+
+    .landing-box {
+        position: absolute !important;
+        top: 7.3rem !important;
+        left: 3.8rem !important;
+        font-weight: 700 !important;
+        font-size: 2rem !important;
+        border-radius: 0px !important;
+        width: 76% !important;
+        background: #fdfdfd7d !important;
+        padding: 3rem !important;
+        line-height: 2.5rem !important;
+    }
+    .landing-text {
+        color: #092282 !important;
+        font-size: 1.5rem !important;
+    }
+
+    .show-btn-input {
+        background: #d5a04e !important;
+        border: solid 1px #FFF !important;
+        border-radius: 20px !important;
+    }
+    .show-btn-input::placeholder {
+        color: #000 !important;
+        font-weight: 700 !important;
+        font-size: 0.95rem !important;
+    }
+
+    .before-btn-text {
+        position: absolute !important;
+        top: 29rem !important;
+        left: 5.8rem !important;
+        font-weight: 700 !important;
+        background: #d5a04e !important;
+        color: #FFF !important;
+        padding: 1rem !important;
+        width: 65%;
+        border-radius: 20px;
+
+    }
+
+    .show-input-input {
+        background: #000000c2 !important;
+        border: solid 3px #FFF !important;
+        color: #FFF !important;
+        border-radius: 20px !important;
+        margin-top: -17rem !important;
+        width: 50% !important;
+        margin-left: 7rem !important;
+    }
+
+    .show-input-input::placeholder {
+        color: #FFF !important;
+    }
+
+    .landing-submit-btn {
+        background: #d5a04e !important;
+        height: 3rem !important;
+        width: 60% !important;
+        font-weight: 700 !important;
+        border-radius: 10px !important;
+
+    }
+    
+}
+    
