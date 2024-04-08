@@ -103,7 +103,7 @@ export default function Home() {
 					<>
 						<Form>
 							<input
-								type="password"
+								type="text"
 								className="show-input-input"
 								fluid
 								placeholder='Input Your Statute Here'
@@ -150,7 +150,7 @@ export default function Home() {
 						<>
 							<Form>
 								<input
-									type="password"
+									type="text"
 									className="show-btn-input"
 									fluid
 									placeholder='Number of days since we first met up until we kissed first time'
