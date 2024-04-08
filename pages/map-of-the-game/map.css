@@ -37,7 +37,7 @@
 
     .map-main-container {
         background: #060d28;
-        width: 100% !important;
+        width: 110% !important;
         min-height: 108vh !important;
         margin-top: -5rem !important;
         padding: 2rem !important;
@@ -47,6 +47,7 @@
         color: #d5a04e !important;
         font-size: 3rem !important;
         margin-top: 5rem !important;
+        text-shadow: center !important;
     }
 
     .map-temp-text2 {
@@ -60,9 +61,7 @@
     }
 
     .unicorn-img {
-        width: 31rem !important;
-        object-fit: cover !important;
-        margin-left: -2.5rem !important;
+        width: 100% !important;
         margin-top: 5rem !important;
     }
 }
