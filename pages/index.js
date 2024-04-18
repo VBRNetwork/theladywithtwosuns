@@ -80,6 +80,16 @@ export default function Home() {
 				>
 					<CircularProgress color="inherit" />
 				</Backdrop>
+				{!showBeginJourney && personStatute === correctPersonStatute && (
+					<>
+						<div id="main">
+							<div class="arrow arrowSliding delay1"></div>
+							<div class="arrow arrowSliding delay2"></div>
+							<div class="arrow arrowSliding delay3"></div>
+						</div>
+					</>
+				)}
+				
                 <img
                     src="images/frame.png"
                     className="landing-frame"
@@ -134,7 +144,7 @@ export default function Home() {
                 {showBeginJourney && personStatute === correctPersonStatute && (
                     <>
                         <Button
-                            className="landing-btn"
+                            className="landing-submit-btn"
                             variant="contained"
                             component="a"
                             href="/map-of-the-game"
@@ -148,7 +158,7 @@ export default function Home() {
 						<>
 							{!showBeginJourney ? (
 						<>
-							<Form>
+							<Form style={{ marginTop: '10rem' }}>
 								<input
 									type="text"
 									className="show-btn-input"
@@ -162,7 +172,7 @@ export default function Home() {
                     		</Form>
 							<Box style={{ marginTop: '1rem' }}>
 								<Button
-									className="landing-submit-btn"
+									className="landing-submit-btn2"
 									variant="contained"
 									onClick={showBeginJourneyFunc}
 								>
@@ -172,18 +182,21 @@ export default function Home() {
 						</>
 					) : (
 						<>
-							<Typography
-								style={{
-									color:'#d5a04e',
-									fontStyle: 'italic',
-									fontWeight: '700',
-								}}
-								variant="p"
-							>
-								You have entered the correct number of days. <br />
-								Please click on the button below 
-								to begin your journey.
-							</Typography>
+							<Box style={{ marginTop: '9rem' }}>
+								<Typography
+									style={{
+										marginTop: '9rem',
+										color:'#d5a04e',
+										fontStyle: 'italic',
+										fontWeight: '700',
+									}}
+									variant="p"
+								>
+									You have entered the correct number of days. <br />
+									Please click on the button above 
+									to begin your journey.
+								</Typography>
+							</Box>
 						</>
 					)}
 						</>
