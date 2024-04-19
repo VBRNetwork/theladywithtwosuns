@@ -45,7 +45,7 @@
 
     .map-temp-text {
         color: #d5a04e !important;
-        font-size: 3rem !important;
+        font-size: 2.5rem !important;
         margin-top: 5rem !important;
         text-shadow: center !important;
     }
@@ -55,13 +55,40 @@
         background-clip: border-box !important;
         -webkit-background-clip: text !important;
         -webkit-text-fill-color: transparent !important;
-        font-size: 3rem !important;
-        margin-top: 2rem !important;
+        font-size: 2rem !important;
+        margin-top: 0rem !important;
         text-align: center !important;
     }
 
     .unicorn-img {
         width: 100% !important;
         margin-top: 5rem !important;
+        margin-left: -2rem !important;
+    }
+
+    .sc-bcXHqe.lcOxyP.loaded.fullView {
+        margin-left: -2rem !important;
+    }
+
+    .show-map-btn-input {
+        background: #d5a04e !important;
+        border: solid 1px #FFF !important;
+        border-radius: 20px !important;
+        width: 70% !important;
+        margin-left: 3rem !important;
+    }
+    .show-map-btn-input::placeholder {
+        color: #000 !important;
+        font-weight: 700 !important;
+        font-size: 0.95rem !important;
+    }
+
+    .map-submit-btn2 {
+        background: #d5a04e !important;
+        height: 3rem !important;
+        width: 60% !important;
+        font-weight: 700 !important;
+        border-radius: 10px !important;
+        margin-left: 4.5rem !important;
     }
 }

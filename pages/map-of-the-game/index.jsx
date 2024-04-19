@@ -8,88 +8,94 @@ import {
     Container,
     Button,
 } from '@mui/material';
-import ImageMarker from "react-image-marker";
-import MapWithKMZLayer from '../../components/MapWithKMZLayer';
-import GoogleMapLoader from 'react-google-maps-loader';
-import PinDropIcon from '@mui/icons-material/PinDrop';
+import { Form } from 'semantic-ui-react';
+import { toast } from 'react-toastify';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
-import InnerImageZoom from 'react-inner-image-zoom';
+import ImageZoom from "react-image-zooom";
 import ParticleImage, { forces, Vector } from "react-particle-image";
-import useWindowSize from "@rooks/use-window-size"
-import {
-    TransformWrapper,
-    TransformComponent,
-    useControls
-  } from "react-zoom-pan-pinch";
+
+
+export default function MapOfTheGame() {
 
   const src =
   "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Love_Heart_SVG.svg/645px-Love_Heart_SVG.svg.png";
 
-const containerStyle = {
-    width: '1000px',
-    height: '500px'
-  };
-  
-  const center = {
-    lat: -3.745,
-    lng: -38.523
-  };
-  
+    const [showMap, setShowMap] = useState(false);
+    const [showMapInput, setShowMapInput] = useState('');
+    const correctMapInput = 'the-lady-with-two-suns';
 
-export default function MapOfTheGame() {
+    const handleChangeMapInput = (e) => {
+        setShowMapInput(e.target.value);
+    }
 
-    const [markers, setMarkers] = useState([]);
-
-    console.log('markers', markers);
-
-    const CustomMarker = () => {
-        return (
-          <div
-            className="image-marker__marker image-marker__marker--default"
-            data-testid="marker"
-          ></div>
-        );
-      };
-
-    const Controls = () => {
-        const { zoomIn, zoomOut, resetTransform } = useControls();
-        return (
-          <>
-            <Button onClick={() => zoomIn()}>Zoom In</Button>
-            <Button onClick={() => zoomOut()}>Zoom Out</Button>
-            <Button onClick={() => resetTransform()}>Reset</Button>
-            <Button disabled={!markers.length > 0} onClick={() => setMarkers([])}>
-                    Clear Markers
-            </Button>
-            <Button
-                disabled={!markers.length > 0}
-                onClick={() => setMarkers((prev) => prev.slice(0, -1))}
-            >
-                Remove Marker
-            </Button>
-          </>
-        );
-      };
-
-
-    // const kmzUrl = 'https://www.google.com/maps/d/kml?mid=1Z8Z1Q1J9Z8J9Z8J9Z8J9Z8J9Z8J9Z8J9&forcekml=1';
-    // const kmzUrl = '/bucharest.kml';
-    const kmzUrl = 'https://github.com/VBRNetwork/theladywithtwosuns/blob/master/components/MapWithKMZLayer/bucharest.kml';
-
-      // AIzaSyCFe9yreeDTwMZbPWI38ICCwMmjWd2foYY
-      // AIzaSyCFe9yreeDTwMZbPWI38ICCwMmjWd2foYY
-    const {innerWidht, innerHeight} = useWindowSize();
+    const showMapFunc = () => {
+        if (showMapInput !== correctMapInput) {
+            toast.error("Incorrect Map Input", {
+                icon: "⏃",
+            });
+            return;
+        }
+        setShowMap(true);
+    }
 
     return  (
         <>
             <Container maxWidth="xxl" className="map-main-container">
-              <Typography className="map-temp-text" variant="h2">
-                  Map of the game is coming soon...
+             {!showMap ? (
+              <>
+                 <Typography className="map-temp-text" variant="h2">
+                  Input your answer bellow
               </Typography>
               <Typography className="map-temp-text2" variant="h2">
-                  Stay tuned!
+                  to unlock the map
               </Typography>
-              <img className="unicorn-img" src="images/unicorn.gif" />
+              <Form style={{ marginTop: '2rem' }}>
+								<input
+									type="text"
+									className="show-map-btn-input"
+									fluid
+									placeholder='Write Your Answer'
+									name="showMapInput"
+									id="showMapInput"
+									value={showMapInput}
+									onChange={handleChangeMapInput}
+								/>
+              </Form>
+              <Box style={{ marginTop: '1rem' }}>
+								<Button
+									className="map-submit-btn2"
+									variant="contained"
+									onClick={showMapFunc}
+								>
+									Submit
+								</Button>
+							</Box>
+              </>
+             ) : (
+              <>
+                <Typography className="map-temp-text" variant="h2">
+                  Map is unlocked
+              </Typography>
+              <Typography className="map-temp-text2" variant="h2">
+                  check markers to continue
+              </Typography>
+              </>
+             )}
+              {!showMap ? (
+                <>
+                  <img className="unicorn-img" src="images/unicorn.gif" />
+              {/* <PinDropIcon className="pin-icon" /> */}
+             
+                </>
+              ) : (
+                <>
+                   <ImageZoom
+                src="images/harta3.jpg"
+                zoom={300}
+                style={{ marginLeft: '-2rem' }}
+              />
+                </>
+              )}
               <ParticleImage
                 style={{ marginLeft: '-1rem' }}
                 scale={0.55}
@@ -117,19 +123,6 @@ export default function MapOfTheGame() {
                   }
                 }}
               />
-                    {/* <PinDropIcon className="pin-icon" />
-
-                    <img className="map-img" src="https://vbrlabs.b-cdn.net/Harta%20Bucuresti%201921%20-%20Planul%20Mihai%20Pantea.jpg" /> */}
-              {/* <div style={{ position: 'relative', zIndex: '0' }}>
-                  <MapWithKMZLayer kmzUrl={kmzUrl} />
-              </div> */}
-              {/* <ImageMarker
-                  src="https://vbrlabs.b-cdn.net/Harta%20Bucuresti%201921%20-%20Planul%20Mihai%20Pantea.jpg"
-                  markers={markers}
-                  onAddMarker={(marker) => setMarkers((prev) => [...prev, marker])}
-                  markerComponent={CustomMarker}
-                  extraClass="map-img"
-              /> */}
             </Container>
         </>
     )
