@@ -45,7 +45,7 @@
 
     .map-temp-text {
         color: #d5a04e !important;
-        font-size: 2.5rem !important;
+        font-size: 2rem !important;
         margin-top: 5rem !important;
         text-shadow: center !important;
     }
@@ -55,9 +55,10 @@
         background-clip: border-box !important;
         -webkit-background-clip: text !important;
         -webkit-text-fill-color: transparent !important;
-        font-size: 2rem !important;
+        font-size: 1.5rem !important;
         margin-top: 0rem !important;
-        text-align: center !important;
+        /* text-align: center !important; */
+        margin-right: 3rem !important;
     }
 
     .unicorn-img {

@@ -22,7 +22,7 @@ export default function MapOfTheGame() {
 
     const [showMap, setShowMap] = useState(false);
     const [showMapInput, setShowMapInput] = useState('');
-    const correctMapInput = 'the-lady-with-two-suns';
+    const correctMapInput = 'precious-love';
 
     const handleChangeMapInput = (e) => {
         setShowMapInput(e.target.value);
@@ -44,10 +44,10 @@ export default function MapOfTheGame() {
              {!showMap ? (
               <>
                  <Typography className="map-temp-text" variant="h2">
-                  Input your answer bellow
+                  First Map has been unlocked
               </Typography>
               <Typography className="map-temp-text2" variant="h2">
-                  to unlock the map
+                  now input you answer to unlock the second one
               </Typography>
               <Form style={{ marginTop: '2rem' }}>
 								<input
@@ -73,27 +73,36 @@ export default function MapOfTheGame() {
               </>
              ) : (
               <>
-                <Typography className="map-temp-text" variant="h2">
-                  Map is unlocked
-              </Typography>
-              <Typography className="map-temp-text2" variant="h2">
-                  check markers to continue
-              </Typography>
+             <Box style={{ marginBottom: '2rem' }}>
+              <Typography className="map-temp-text" variant="h2">
+                    Milano map unlocked
+                </Typography>
+                <Typography className="map-temp-text2" variant="h2">
+                    check first marker to get to the rendezvous point
+                </Typography>
+             </Box>
               </>
              )}
               {!showMap ? (
                 <>
-                  <img className="unicorn-img" src="images/unicorn.gif" />
+                  {/* <img className="unicorn-img" src="images/unicorn.gif" /> */}
               {/* <PinDropIcon className="pin-icon" /> */}
+                  <div style={{ marginTop: '3rem' }}>
+                    <ImageZoom
+                      src="images/harta3.jpg"
+                      zoom={300}
+                      style={{ marginLeft: '-2rem' }}
+                    />
+                  </div>
              
                 </>
               ) : (
                 <>
-                   <ImageZoom
-                src="images/harta3.jpg"
-                zoom={300}
-                style={{ marginLeft: '-2rem' }}
-              />
+                  <ImageZoom
+                    src="images/milano.jpg"
+                    zoom={300}
+                    style={{ marginLeft: '-2rem' }}
+                  />
                 </>
               )}
               <ParticleImage
