@@ -22,7 +22,8 @@ export default function MapOfTheGame() {
 
     const [showMap, setShowMap] = useState(false);
     const [showMapInput, setShowMapInput] = useState('');
-    const correctMapInput = 'precious-love';
+    const [showWinnieLoading, setShowWinnieLoading] = useState(true);
+    const correctMapInput = 'winnie-the-pooh';
 
     const handleChangeMapInput = (e) => {
         setShowMapInput(e.target.value);
@@ -47,6 +48,13 @@ export default function MapOfTheGame() {
     //   }
     // }
     // , []);
+
+    // React.useEffect(() => {
+    //   setShowWinnieLoading(true);
+    //   setTimeout(() => {
+    //     setShowWinnieLoading(false);
+    //   }, 1000);
+    // }, []);
 
     return  (
         <>
@@ -96,7 +104,8 @@ export default function MapOfTheGame() {
                     New Position in Bucharest unlocked
                 </Typography>
                 <Typography className="map-temp-text2" variant="h2">
-                    check the marker to get to the rendezvous point
+                    check the marker to get to the rendezvous <br />
+                    point and wait for exact coordinates
                 </Typography>
                 <Typography className="map-temp-text" variant="h2">
                     Requirements:
@@ -110,29 +119,28 @@ export default function MapOfTheGame() {
              </Box>
               </>
              )}
-              {!showMap ? (
+              {!showMap && showWinnieLoading ? (
                 <>
                   {/* <img className="unicorn-img" src="images/unicorn.gif" /> */}
               {/* <PinDropIcon className="pin-icon" /> */}
                   
                   <>
                  <div style={{ marginLeft: '-2rem', marginTop: '2rem' }}>
-                  <ImageZoom
-                      src="images/milano.jpg"
-                      zoom={300}
-                    />
+                    <img className="winnie-loading" src="images/winnie.gif" />
                  </div>
                 </>
              
                 </>
               ) : (
-                <div style={{ marginTop: '3rem' }}>
+                 <>
+                  <div style={{ marginTop: '3rem' }}>
                     <ImageZoom
                       src="images/harta4.jpg"
                       zoom={300}
                       style={{ marginLeft: '-2rem' }}
                     />
-                  </div>
+                    </div>
+                 </>
               )}
               <ParticleImage
                 style={{ marginLeft: '-1rem' }}
