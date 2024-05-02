@@ -17,6 +17,15 @@ import { toast } from "react-toastify";
 
 export default function Home() {
 
+	React.useEffect(() => {
+		console.log('Home page mounted');
+		const personSt = localStorage.getItem('personStatute');
+		if (personSt) {
+			setPersonStatute(personSt);
+		}
+	}
+	, []);
+
     const [showBeginJourney, setShowBeginJourney] = React.useState(false);
 	const [showBackdrop, setShowBackdrop] = React.useState(false);
 	const [showInput, setShowInput] = React.useState(true);
@@ -33,6 +42,7 @@ export default function Home() {
 
 	const handleChangePersonStatute = (e) => {
 		setPersonStatute(e.target.value);
+		localStorage.setItem('personStatute', e.target.value);
 	};
 
     const showBeginJourneyFunc = () => {

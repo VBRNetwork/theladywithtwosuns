@@ -26,6 +26,7 @@ export default function MapOfTheGame() {
 
     const handleChangeMapInput = (e) => {
         setShowMapInput(e.target.value);
+        // localStorage.setItem('showMapInput', e.target.value);
     }
 
     const showMapFunc = () => {
@@ -38,17 +39,34 @@ export default function MapOfTheGame() {
         setShowMap(true);
     }
 
+    // React.useEffect(() => {
+    //   console.log('Home page mounted');
+    //   const shoMapInpt = localStorage.getItem('showMapInput');
+    //   if (shoMapInpt) {
+    //     setShowMapInput(shoMapInpt);
+    //   }
+    // }
+    // , []);
+
     return  (
         <>
             <Container maxWidth="xxl" className="map-main-container">
              {!showMap ? (
               <>
-                 <Typography className="map-temp-text" variant="h2">
+              {/* <Typography className="map-temp-text" variant="h2">
                   First Map has been unlocked
               </Typography>
               <Typography className="map-temp-text2" variant="h2">
                   now input you answer to unlock the second one
-              </Typography>
+              </Typography> */}
+              <Box style={{ marginBottom: '2rem' }}>
+              <Typography className="map-temp-text" variant="h2">
+                    Milano was map unlocked
+                </Typography>
+                <Typography className="map-temp-text3" variant="h2">
+                    Your Milano hint is here now. Input your answer to unlock next location.
+                </Typography>
+             </Box>
               <Form style={{ marginTop: '2rem' }}>
 								<input
 									type="text"
@@ -74,11 +92,20 @@ export default function MapOfTheGame() {
              ) : (
               <>
              <Box style={{ marginBottom: '2rem' }}>
-              <Typography className="map-temp-text" variant="h2">
-                    Milano map unlocked
+              <Typography className="map-temp-text1" variant="h2">
+                    New Position in Bucharest unlocked
                 </Typography>
                 <Typography className="map-temp-text2" variant="h2">
-                    check first marker to get to the rendezvous point
+                    check the marker to get to the rendezvous point
+                </Typography>
+                <Typography className="map-temp-text" variant="h2">
+                    Requirements:
+                </Typography>
+                <Typography className="map-temp-text3" variant="h2">
+                    While I'm not a diamond, <br />
+                    I'm usually on a ring, <br />
+                    And this time you will use me <br />
+                    So you can see new things.
                 </Typography>
              </Box>
               </>
@@ -87,23 +114,25 @@ export default function MapOfTheGame() {
                 <>
                   {/* <img className="unicorn-img" src="images/unicorn.gif" /> */}
               {/* <PinDropIcon className="pin-icon" /> */}
-                  <div style={{ marginTop: '3rem' }}>
+                  
+                  <>
+                 <div style={{ marginLeft: '-2rem', marginTop: '2rem' }}>
+                  <ImageZoom
+                      src="images/milano.jpg"
+                      zoom={300}
+                    />
+                 </div>
+                </>
+             
+                </>
+              ) : (
+                <div style={{ marginTop: '3rem' }}>
                     <ImageZoom
-                      src="images/harta3.jpg"
+                      src="images/harta4.jpg"
                       zoom={300}
                       style={{ marginLeft: '-2rem' }}
                     />
                   </div>
-             
-                </>
-              ) : (
-                <>
-                  <ImageZoom
-                    src="images/milano.jpg"
-                    zoom={300}
-                    style={{ marginLeft: '-2rem' }}
-                  />
-                </>
               )}
               <ParticleImage
                 style={{ marginLeft: '-1rem' }}
