@@ -126,7 +126,20 @@ export default function MapOfTheGame() {
                   
                   <>
                  <div style={{ marginLeft: '-2rem', marginTop: '2rem' }}>
+                    <div style={{ marginTop: '3rem' }}>
+                      <img
+                        src="images/milano.jpg"
+                        style={{
+                          marginLeft: '-10rem',
+                          width: '49rem',
+                          position: 'absolute',
+                          opacity: '0.3',
+                          marginTop: '0rem',
+                        }}
+                      />
+                    </div>
                     <img className="winnie-loading" src="images/winnie.gif" />
+                    
                  </div>
                 </>
              
