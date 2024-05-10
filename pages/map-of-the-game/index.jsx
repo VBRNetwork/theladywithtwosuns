@@ -1,6 +1,6 @@
 /* global google */
 
-import React, { use, useState } from 'react';
+import React, { useState } from 'react';
 import {
     Box,
     Stack,
@@ -13,6 +13,8 @@ import { toast } from 'react-toastify';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 import ImageZoom from "react-image-zooom";
 import ParticleImage, { forces, Vector } from "react-particle-image";
+import Clock from 'react-clock';
+import 'react-clock/dist/Clock.css';
 
 
 export default function MapOfTheGame() {
@@ -55,6 +57,34 @@ export default function MapOfTheGame() {
     //     setShowWinnieLoading(false);
     //   }, 1000);
     // }, []);
+
+  const [clockValue, setClockValue] = useState('2024-05-10T09:25:05.451Z');
+  const [clockDisplayed, setClockDisplayed] = useState(false);
+  const [clockInput, setClockInput] = useState('');
+  const correctClockInput = 'clock';
+
+  const handleChangeClockInput = (e) => {
+    setClockInput(e.target.value);
+    // localStorage.setItem('showMapInput', e.target.value);
+}
+
+const showClockFunc = () => {
+    if (clockInput !== correctClockInput) {
+        toast.error("Incorrect Clock Input", {
+            icon: "⏃",
+        });
+        return;
+    }
+    setClockDisplayed(true);
+}
+
+  // React.useEffect(() => {
+  //   const interval = setInterval(() => setClockValue(new Date()), 1000);
+
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, []);
 
     return  (
         <>
@@ -116,6 +146,53 @@ export default function MapOfTheGame() {
                     And this time you will use me <br />
                     So you can see new things.
                 </Typography>
+               {clockDisplayed ? (
+                <>
+                  <Clock locale="ro-RO" size={400} value={clockValue} />
+                  
+                </>
+               ) : (
+                <>
+
+                  <Box>
+                    <Typography className="map-temp-text" variant="h2">
+                          The Riddle:
+                      </Typography>
+                      <Typography className="map-temp-text3" variant="h2">
+                        In the forest deep where ancient trees stand,
+                        By the murmuring fountain where water grand,
+                        Amidst nature's whispers, a secret it guards,
+                        A mystical marvel, where time flows in shards.
+
+                        Its face adorned with nature's touch,
+                        Hands like branches, reaching out much.
+                        In the heart of the woods, its presence serene,
+                        A keeper of time in a mystical scene.
+                    </Typography>
+                  </Box>
+                  <Form style={{ marginTop: '2rem' }}>
+                    <input
+                      type="text"
+                      className="show-map-btn-input"
+                      fluid
+                      placeholder='Write Your Answer'
+                      name="clockInput"
+                      id="clockInput"
+                      value={clockInput}
+                      onChange={handleChangeClockInput}
+                    />
+                  </Form>
+                  <Box style={{ marginTop: '1rem' }}>
+                    <Button
+                      className="map-submit-btn2"
+                      variant="contained"
+                      onClick={showClockFunc}
+                    >
+                      Submit
+                    </Button>
+							    </Box>
+                </>
+               ) }
              </Box>
               </>
              )}
