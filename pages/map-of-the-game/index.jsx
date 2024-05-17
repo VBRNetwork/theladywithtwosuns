@@ -225,7 +225,7 @@ const showClockFunc = () => {
                 </>
               ) : (
                  <>
-                  <div style={{ marginTop: '5rem' }}>
+                  <div style={{ marginTop: '10rem' }}>
                     <ImageZoom
                       src="images/harta5.jpg"
                       zoom={300}
