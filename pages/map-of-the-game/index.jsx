@@ -25,7 +25,7 @@ export default function MapOfTheGame() {
     const [showMap, setShowMap] = useState(false);
     const [showMapInput, setShowMapInput] = useState('');
     const [showWinnieLoading, setShowWinnieLoading] = useState(true);
-    const correctMapInput = 'winnie-the-pooh';
+    const correctMapInput = 'sunset-with-queen-of-beauty-by-the-lake';
 
     const handleChangeMapInput = (e) => {
         setShowMapInput(e.target.value);
@@ -98,11 +98,25 @@ const showClockFunc = () => {
                   now input you answer to unlock the second one
               </Typography> */}
               <Box style={{ marginBottom: '2rem' }}>
-              <Typography className="map-temp-text" variant="h2">
-                    Milano was map unlocked
+              <Typography className="map-temp-text1" variant="h2">
+                    Use Previous hints to unlock the next location
                 </Typography>
                 <Typography className="map-temp-text3" variant="h2">
-                    Your Milano hint is here now. Input your answer to unlock next location.
+                    Think in perspective
+                </Typography>
+                <Typography className="map-temp-text5" variant="h2">
+                  Where the sky meets the still lake,<br />
+                  As the day ends and colors fade,<br />
+                  A queen from a deck of cards,<br />
+                  Stands by the water, beautiful and grand.<br />
+                  <br />
+                  A queen with a club in her hand,<br />
+                  Watching the sunset over the land.<br />
+                  In nature's arms, she holds her place,<br />
+                  By the lake at dusk, with a lovely face.<br />
+                  <br />
+                  What time and scene am I describing here?<br />
+                  Find the answer in nature, it's clear.<br />
                 </Typography>
              </Box>
               <Form style={{ marginTop: '2rem' }}>
@@ -129,7 +143,7 @@ const showClockFunc = () => {
               </>
              ) : (
               <>
-             <Box style={{ marginBottom: '2rem' }}>
+             {/* <Box style={{ marginBottom: '2rem' }}>
               <Typography className="map-temp-text1" variant="h2">
                     New Position in Bucharest unlocked
                 </Typography>
@@ -193,7 +207,7 @@ const showClockFunc = () => {
 							    </Box>
                 </>
                ) }
-             </Box>
+             </Box> */}
               </>
              )}
               {!showMap && showWinnieLoading ? (
@@ -203,19 +217,7 @@ const showClockFunc = () => {
                   
                   <>
                  <div style={{ marginLeft: '-2rem', marginTop: '2rem' }}>
-                    <div style={{ marginTop: '3rem' }}>
-                      <img
-                        src="images/milano.jpg"
-                        style={{
-                          marginLeft: '-10rem',
-                          width: '49rem',
-                          position: 'absolute',
-                          opacity: '0.3',
-                          marginTop: '0rem',
-                        }}
-                      />
-                    </div>
-                    <img className="winnie-loading" src="images/winnie.gif" />
+                    <img className="winnie-loading" src="images/sleeping_beauty.gif" />
                     
                  </div>
                 </>
@@ -225,7 +227,7 @@ const showClockFunc = () => {
                  <>
                   <div style={{ marginTop: '3rem' }}>
                     <ImageZoom
-                      src="images/harta4.jpg"
+                      src="images/harta5.jpg"
                       zoom={300}
                       style={{ marginLeft: '-2rem' }}
                     />
