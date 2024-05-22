@@ -39,7 +39,6 @@
         background: #060d28;
         width: 120% !important;
         min-height: 108vh !important;
-        margin-top: -5rem !important;
         padding: 2rem !important;
     }
 
@@ -87,10 +86,21 @@
         -webkit-background-clip: text !important;
         -webkit-text-fill-color: transparent !important;
         font-size: 1.5rem !important;
-        margin-top: 0rem !important;
+        margin-top: 4rem !important;
         /* text-align: center !important; */
-        margin-right: 5rem !important;
+        margin-right: 8rem !important;
         margin-bottom: 3rem !important;
+    }
+
+    .map-temp-text6 {
+        background: -webkit-linear-gradient( 76deg, rgb(255, 255, 255) 0%, rgb(5, 163, 255) 70%, rgb(40, 115, 255) 100%) !important;
+        background-clip: border-box !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        font-size: 1.5rem !important;
+        /* text-align: center !important; */
+        margin-right: 4rem !important;
+
     }
 
     .unicorn-img {

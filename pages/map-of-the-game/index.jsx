@@ -25,7 +25,7 @@ export default function MapOfTheGame() {
     const [showMap, setShowMap] = useState(false);
     const [showMapInput, setShowMapInput] = useState('');
     const [showWinnieLoading, setShowWinnieLoading] = useState(true);
-    const correctMapInput = 'sunset-with-queen-of-beauty-by-the-lake';
+    const correctMapInput = 'queen-good-listener-with-king-in-love';
 
     const handleChangeMapInput = (e) => {
         setShowMapInput(e.target.value);
@@ -99,24 +99,19 @@ const showClockFunc = () => {
               </Typography> */}
               <Box style={{ marginBottom: '2rem' }}>
               <Typography className="map-temp-text1" variant="h2">
-                    Use Previous hints to unlock the next location
-                </Typography>
-                <Typography className="map-temp-text3" variant="h2">
-                    Think in perspective
+                    Use letter hints to unlock the next location
                 </Typography>
                 <Typography className="map-temp-text5" variant="h2">
-                  Where the sky meets the still lake,<br />
-                  As the day ends and colors fade,<br />
-                  A queen from a deck of cards,<br />
-                  Stands by the water, beautiful and grand.<br />
-                  <br />
-                  A queen with a club in her hand,<br />
-                  Watching the sunset over the land.<br />
-                  In nature's arms, she holds her place,<br />
-                  By the lake at dusk, with a lovely face.<br />
-                  <br />
-                  What time and scene am I describing here?<br />
-                  Find the answer in nature, it's clear.<br />
+                  A warm-hearted, loving woman, the Queen of Hearts is someone who has mastered her emotions.<br />
+                  She is intuitive, creative, and compassionate.<br />
+                  These qualities make her an excellent listener<br />
+                  She may work as a healer or counselor.<br />
+                  <br /><br /><br />
+                  As the highest-ranking card in the suit of Hearts,<br />
+                  the King of Hearts is often associated with love, empathy, and deep emotions.<br />
+                  This powerful figure embodies the highest form of emotional intelligence,<br />
+                  expressing profound understanding and sensitivity to the needs of others.<br />
+                  A Leader of Wisdom and Compassion.<br />
                 </Typography>
              </Box>
               <Form style={{ marginTop: '2rem' }}>
@@ -217,7 +212,7 @@ const showClockFunc = () => {
                   
                   <>
                  <div style={{ marginLeft: '-2rem', marginTop: '2rem' }}>
-                    <img className="winnie-loading" src="images/sleeping_beauty.gif" />
+                    <img className="winnie-loading" src="images/giphy.gif" />
                     
                  </div>
                 </>
@@ -225,9 +220,15 @@ const showClockFunc = () => {
                 </>
               ) : (
                  <>
-                  <div style={{ marginTop: '10rem' }}>
+                  <Typography className="map-temp-text6" variant="h2">
+                    Find new location on the map, 
+                    In the park above the lake,
+                    You will find the next clue,
+                    And the next step you will take.
+                  </Typography>
+                  <div style={{ marginTop: '5rem' }}>
                     <ImageZoom
-                      src="images/harta5.jpg"
+                      src="images/harta6.jpg"
                       zoom={300}
                       style={{ marginLeft: '-2rem' }}
                     />
