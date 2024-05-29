@@ -38,8 +38,8 @@
     .map-main-container {
         background: #060d28;
         width: 120% !important;
-        min-height: 108vh !important;
-        padding: 2rem !important;
+        min-height: 120vh !important;
+        padding-top: 2rem !important;
     }
 
     .map-temp-text {
@@ -173,5 +173,9 @@
         background-color: #00ff87 !important;
         width: 5px !important;
         /* transform: rotate(9030deg) !important; */
+    }
+
+    .gif-style {
+        width: 100% !important;
     }
 }

@@ -25,7 +25,7 @@ export default function MapOfTheGame() {
     const [showMap, setShowMap] = useState(false);
     const [showMapInput, setShowMapInput] = useState('');
     const [showWinnieLoading, setShowWinnieLoading] = useState(true);
-    const correctMapInput = 'queen-good-listener-with-king-in-love';
+    const correctMapInput = 'queen-of-intelligence-with-king-of-reason-in-milan';
 
     const handleChangeMapInput = (e) => {
         setShowMapInput(e.target.value);
@@ -98,20 +98,18 @@ const showClockFunc = () => {
                   now input you answer to unlock the second one
               </Typography> */}
               <Box style={{ marginBottom: '2rem' }}>
-              <Typography className="map-temp-text1" variant="h2">
-                    Use letter hints to unlock the next location
+                <Typography className="map-temp-text1" variant="h2">
+                      Use letter and bellow hints to unlock the next location
                 </Typography>
                 <Typography className="map-temp-text5" variant="h2">
-                  A warm-hearted, loving woman, the Queen of Hearts is someone who has mastered her emotions.<br />
-                  She is intuitive, creative, and compassionate.<br />
-                  These qualities make her an excellent listener<br />
-                  She may work as a healer or counselor.<br />
+                  In cartomancy, the queen of spades is considered to be a sign of intelligence.<br />
+                  It is representative of judgment that is practical, logical, and intellectual.<br />
+                  It represents a woman who is creative and makes her plans ahead of time.<br />
                   <br /><br /><br />
-                  As the highest-ranking card in the suit of Hearts,<br />
-                  the King of Hearts is often associated with love, empathy, and deep emotions.<br />
-                  This powerful figure embodies the highest form of emotional intelligence,<br />
-                  expressing profound understanding and sensitivity to the needs of others.<br />
-                  A Leader of Wisdom and Compassion.<br />
+                  The King of Spades is the embodiment of logic and reason.<br />
+                  He is fair and just in his relationships with others.<br />
+                  At times, he may come across as a little cool and standoffish.<br />
+                  He prefers to think before he acts and likes to observe situations before getting involved.<br />
                 </Typography>
              </Box>
               <Form style={{ marginTop: '2rem' }}>
@@ -211,8 +209,8 @@ const showClockFunc = () => {
               {/* <PinDropIcon className="pin-icon" /> */}
                   
                   <>
-                 <div style={{ marginLeft: '-2rem', marginTop: '2rem' }}>
-                    <img className="winnie-loading" src="images/giphy.gif" />
+                 <div style={{ marginTop: '2rem' }}>
+                    <img className="gif-style" src="images/sconcs.gif" />
                     
                  </div>
                 </>
@@ -221,14 +219,12 @@ const showClockFunc = () => {
               ) : (
                  <>
                   <Typography className="map-temp-text6" variant="h2">
-                    Find new location on the map, 
-                    In the park above the lake,
-                    You will find the next clue,
-                    And the next step you will take.
+                    Find new location on the map.
+                    Love is not blind, but full of feelings, expressed by colors.
                   </Typography>
                   <div style={{ marginTop: '5rem' }}>
                     <ImageZoom
-                      src="images/harta6.jpg"
+                      src="images/milano-new.jpg"
                       zoom={300}
                       style={{ marginLeft: '-2rem' }}
                     />
