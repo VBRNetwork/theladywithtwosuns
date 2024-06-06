@@ -15,6 +15,8 @@ import ImageZoom from "react-image-zooom";
 import ParticleImage, { forces, Vector } from "react-particle-image";
 import Clock from 'react-clock';
 import 'react-clock/dist/Clock.css';
+import {JigsawPuzzle} from "react-jigsaw-puzzle/lib";
+import "react-jigsaw-puzzle/lib/jigsaw-puzzle.css";
 
 
 export default function MapOfTheGame() {
@@ -25,11 +27,12 @@ export default function MapOfTheGame() {
     const [showMap, setShowMap] = useState(false);
     const [showMapInput, setShowMapInput] = useState('');
     const [showWinnieLoading, setShowWinnieLoading] = useState(true);
-    const correctMapInput = 'queen-of-intelligence-with-king-of-reason-in-milan';
+    const correctMapInput = 'nice';
 
     const handleChangeMapInput = (e) => {
         setShowMapInput(e.target.value);
         // localStorage.setItem('showMapInput', e.target.value);
+        
     }
 
     const showMapFunc = () => {
@@ -40,32 +43,60 @@ export default function MapOfTheGame() {
             return;
         }
         setShowMap(true);
+        
     }
-
-    // React.useEffect(() => {
-    //   console.log('Home page mounted');
-    //   const shoMapInpt = localStorage.getItem('showMapInput');
-    //   if (shoMapInpt) {
-    //     setShowMapInput(shoMapInpt);
-    //   }
-    // }
-    // , []);
-
-    // React.useEffect(() => {
-    //   setShowWinnieLoading(true);
-    //   setTimeout(() => {
-    //     setShowWinnieLoading(false);
-    //   }, 1000);
-    // }, []);
 
   const [clockValue, setClockValue] = useState('2024-05-10T09:25:05.451Z');
   const [clockDisplayed, setClockDisplayed] = useState(false);
   const [clockInput, setClockInput] = useState('');
   const correctClockInput = 'clock';
+  const [showPuzzle, setShowPuzzle] = useState(false);
+  const [puzzleSolved, setPuzzleSolved] = useState(false);
+  const [showSecondPuzzle, setShowSecondPuzzle] = useState(false);
+  const [puzzleInput, setPuzzleInput] = useState('');
+  const correctPuzzleInput = 'puzzle';
 
-  const handleChangeClockInput = (e) => {
-    setClockInput(e.target.value);
-    // localStorage.setItem('showMapInput', e.target.value);
+
+const handleChangePuzzleInput = (e) => {
+  setPuzzleInput(e.target.value);
+  // localStorage.setItem('showMapInput', e.target.value);
+}
+
+const showPuzzleFunc = () => {
+
+    if (puzzleInput !== correctPuzzleInput) {
+        toast.error("Incorrect Puzzle Input", {
+            icon: "⏃",
+        });
+        return;
+    }
+    toast.success("Puzzle Solved", {
+        icon: "🧩"
+    }),
+    setShowSecondPuzzle(true);
+}
+
+const puzzleSolvedFunc = () => {
+    setPuzzleSolved(true);
+    localStorage.setItem('puzzleSolved', true);
+    toast.success("Puzzle Solved", {
+        icon: "🧩"
+    }),
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000);
+}
+
+React.useEffect(() => {
+  const puzzleSolved = localStorage.getItem('puzzleSolved');
+  if (puzzleSolved) {
+    setPuzzleSolved(true);
+  }
+}, []);
+
+const handleChangeClockInput = (e) => {
+  setClockInput(e.target.value);
+  // localStorage.setItem('showMapInput', e.target.value);
 }
 
 const showClockFunc = () => {
@@ -77,14 +108,6 @@ const showClockFunc = () => {
     }
     setClockDisplayed(true);
 }
-
-  // React.useEffect(() => {
-  //   const interval = setInterval(() => setClockValue(new Date()), 1000);
-
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, []);
 
     return  (
         <>
@@ -98,8 +121,8 @@ const showClockFunc = () => {
                   now input you answer to unlock the second one
               </Typography> */}
               <Box style={{ marginBottom: '2rem' }}>
-                <Typography className="map-temp-text1" variant="h2">
-                      Use letter and bellow hints to unlock the next location
+                {/* <Typography className="map-temp-text1" variant="h2">
+                    Use letter and bellow hints to unlock the next location
                 </Typography>
                 <Typography className="map-temp-text5" variant="h2">
                   In cartomancy, the queen of spades is considered to be a sign of intelligence.<br />
@@ -110,29 +133,76 @@ const showClockFunc = () => {
                   He is fair and just in his relationships with others.<br />
                   At times, he may come across as a little cool and standoffish.<br />
                   He prefers to think before he acts and likes to observe situations before getting involved.<br />
-                </Typography>
+                </Typography> */}
+               {showPuzzle ? (
+                <>
+                  <JigsawPuzzle
+                    imageSrc="images/puzzle.jpg"
+                    rows={2}
+                    columns={3}
+                    onSolved={() => puzzleSolvedFunc()}
+                  />
+                </>
+               ) : (
+                <>
+                  {!puzzleSolved ? (
+                    <>
+                      <Box style={{ marginTop: '1rem' }}>
+                        <Button
+                          className="map-submit-btn2"
+                          variant="contained"
+                          onClick={() => setShowPuzzle(true)}
+                        >
+                          Begin Puzzle Game ❤️
+                        </Button>
+                      </Box>
+                    </>
+                  ) : (
+                    <>
+                      <Typography className="map-temp-text1" variant="h2">
+                        Use bellow riddle to unlock the next location
+                      </Typography>
+                      <Typography className="map-temp-text5" variant="h2">
+                        I am a city by the sea,<br />
+                        Where the Promenade's beauty is free.<br />
+                        With azure waters and skies so bright,<br />
+                        Artists capture my dazzling light.<br />
+                        <br /><br /><br />
+                        What city am I, with beaches so nice,<br />
+                        Where sunshine and glamour meet in paradise?<br />
+                      </Typography>
+                    </>
+                  )}
+                </>
+               )}
              </Box>
-              <Form style={{ marginTop: '2rem' }}>
-								<input
-									type="text"
-									className="show-map-btn-input"
-									fluid
-									placeholder='Write Your Answer'
-									name="showMapInput"
-									id="showMapInput"
-									value={showMapInput}
-									onChange={handleChangeMapInput}
-								/>
-              </Form>
-              <Box style={{ marginTop: '1rem' }}>
-								<Button
-									className="map-submit-btn2"
-									variant="contained"
-									onClick={showMapFunc}
-								>
-									Submit
-								</Button>
-							</Box>
+              {puzzleSolved ? (
+                <>
+                  <Form style={{ marginTop: '2rem' }}>
+                    <input
+                      type="text"
+                      className="show-map-btn-input"
+                      fluid
+                      placeholder='Write Your Answer'
+                      name="showMapInput"
+                      id="showMapInput"
+                      value={showMapInput}
+                      onChange={handleChangeMapInput}
+                    />
+                  </Form>
+                  <Box style={{ marginTop: '1rem' }}>
+                    <Button
+                      className="map-submit-btn2"
+                      variant="contained"
+                      onClick={showMapFunc}
+                    >
+                      Submit
+                    </Button>
+                  </Box>
+                </>
+              ) : (
+                <></>
+              )}
               </>
              ) : (
               <>
@@ -210,7 +280,7 @@ const showClockFunc = () => {
                   
                   <>
                  <div style={{ marginTop: '2rem' }}>
-                    <img className="gif-style" src="images/sconcs.gif" />
+                    <img className="gif-style" src="images/skunk.gif" />
                     
                  </div>
                 </>
@@ -220,11 +290,11 @@ const showClockFunc = () => {
                  <>
                   <Typography className="map-temp-text6" variant="h2">
                     Find new location on the map.
-                    Love is not blind, but full of feelings, expressed by colors.
+                    Love is Royal.
                   </Typography>
                   <div style={{ marginTop: '5rem' }}>
                     <ImageZoom
-                      src="images/milano-new.jpg"
+                      src="images/monaco.jpg"
                       zoom={300}
                       style={{ marginLeft: '-2rem' }}
                     />
