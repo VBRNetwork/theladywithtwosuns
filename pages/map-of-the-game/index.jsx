@@ -27,7 +27,7 @@ export default function MapOfTheGame() {
     const [showMap, setShowMap] = useState(false);
     const [showMapInput, setShowMapInput] = useState('');
     const [showWinnieLoading, setShowWinnieLoading] = useState(true);
-    const correctMapInput = 'nice';
+    const correctMapInput = 'living-fairytale';
 
     const handleChangeMapInput = (e) => {
         setShowMapInput(e.target.value);
@@ -52,9 +52,12 @@ export default function MapOfTheGame() {
   const correctClockInput = 'clock';
   const [showPuzzle, setShowPuzzle] = useState(false);
   const [puzzleSolved, setPuzzleSolved] = useState(false);
+  const [puzzleSolved2, setPuzzleSolved2] = useState(false);
   const [showSecondPuzzle, setShowSecondPuzzle] = useState(false);
   const [puzzleInput, setPuzzleInput] = useState('');
   const correctPuzzleInput = 'puzzle';
+
+  // next clue -> home-town-childhood-parc
 
 
 const handleChangePuzzleInput = (e) => {
@@ -77,8 +80,8 @@ const showPuzzleFunc = () => {
 }
 
 const puzzleSolvedFunc = () => {
-    setPuzzleSolved(true);
-    localStorage.setItem('puzzleSolved', true);
+    setPuzzleSolved2(true);
+    localStorage.setItem('puzzleSolved2', true);
     toast.success("Puzzle Solved", {
         icon: "🧩"
     }),
@@ -88,9 +91,9 @@ const puzzleSolvedFunc = () => {
 }
 
 React.useEffect(() => {
-  const puzzleSolved = localStorage.getItem('puzzleSolved');
-  if (puzzleSolved) {
-    setPuzzleSolved(true);
+  const puzzleSolved2 = localStorage.getItem('puzzleSolved2');
+  if (puzzleSolved2) {
+    setPuzzleSolved2(true);
   }
 }, []);
 
@@ -114,30 +117,11 @@ const showClockFunc = () => {
             <Container maxWidth="xxl" className="map-main-container">
              {!showMap ? (
               <>
-              {/* <Typography className="map-temp-text" variant="h2">
-                  First Map has been unlocked
-              </Typography>
-              <Typography className="map-temp-text2" variant="h2">
-                  now input you answer to unlock the second one
-              </Typography> */}
               <Box style={{ marginBottom: '2rem' }}>
-                {/* <Typography className="map-temp-text1" variant="h2">
-                    Use letter and bellow hints to unlock the next location
-                </Typography>
-                <Typography className="map-temp-text5" variant="h2">
-                  In cartomancy, the queen of spades is considered to be a sign of intelligence.<br />
-                  It is representative of judgment that is practical, logical, and intellectual.<br />
-                  It represents a woman who is creative and makes her plans ahead of time.<br />
-                  <br /><br /><br />
-                  The King of Spades is the embodiment of logic and reason.<br />
-                  He is fair and just in his relationships with others.<br />
-                  At times, he may come across as a little cool and standoffish.<br />
-                  He prefers to think before he acts and likes to observe situations before getting involved.<br />
-                </Typography> */}
                {showPuzzle ? (
                 <>
                   <JigsawPuzzle
-                    imageSrc="images/puzzle.jpg"
+                    imageSrc="images/puzzle2.jpeg"
                     rows={2}
                     columns={3}
                     onSolved={() => puzzleSolvedFunc()}
@@ -145,7 +129,7 @@ const showClockFunc = () => {
                 </>
                ) : (
                 <>
-                  {!puzzleSolved ? (
+                  {!puzzleSolved2 ? (
                     <>
                       <Box style={{ marginTop: '1rem' }}>
                         <Button
@@ -160,23 +144,14 @@ const showClockFunc = () => {
                   ) : (
                     <>
                       <Typography className="map-temp-text1" variant="h2">
-                        Use bellow riddle to unlock the next location
-                      </Typography>
-                      <Typography className="map-temp-text5" variant="h2">
-                        I am a city by the sea,<br />
-                        Where the Promenade's beauty is free.<br />
-                        With azure waters and skies so bright,<br />
-                        Artists capture my dazzling light.<br />
-                        <br /><br /><br />
-                        What city am I, with beaches so nice,<br />
-                        Where sunshine and glamour meet in paradise?<br />
+                        Use last riddle clue to unlock the next step ❤️
                       </Typography>
                     </>
                   )}
                 </>
                )}
              </Box>
-              {puzzleSolved ? (
+              {puzzleSolved2 ? (
                 <>
                   <Form style={{ marginTop: '2rem' }}>
                     <input
@@ -280,7 +255,7 @@ const showClockFunc = () => {
                   
                   <>
                  <div style={{ marginTop: '2rem' }}>
-                    <img className="gif-style" src="images/skunk.gif" />
+                    <img className="gif-style" src="images/princess.gif" />
                     
                  </div>
                 </>
@@ -288,9 +263,19 @@ const showClockFunc = () => {
                 </>
               ) : (
                  <>
-                  <Typography className="map-temp-text6" variant="h2">
-                    Find new location on the map.
-                    Love is Royal.
+                  <Typography className="map-temp-text1" variant="h2">
+                    Answer bellow riddle to unlock next map.
+                  </Typography>
+                  <br /><br /><br /> 
+                  <Typography className="map-temp-text3" variant="h2">
+                    In the heart of the city, yet nature surrounds, <br />
+                    A place of joy where laughter sounds.<br />
+                    In your hometown, where memories stay,<br />
+                    Children’s voices, games in play.<br />
+
+                    A haven of green in urban embrace,<br />
+                    Where childhood dreams find their space.<br />
+                    Recall the times, so pure and stark,<br />
                   </Typography>
                   <div style={{ marginTop: '5rem' }}>
                     <ImageZoom
