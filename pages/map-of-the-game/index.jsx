@@ -27,7 +27,7 @@ export default function MapOfTheGame() {
     const [showMap, setShowMap] = useState(false);
     const [showMapInput, setShowMapInput] = useState('');
     const [showWinnieLoading, setShowWinnieLoading] = useState(true);
-    const correctMapInput = 'living-fairytale';
+    const correctMapInput = 'home-town-childhood-parc';
 
     const handleChangeMapInput = (e) => {
         setShowMapInput(e.target.value);
@@ -144,7 +144,18 @@ const showClockFunc = () => {
                   ) : (
                     <>
                       <Typography className="map-temp-text1" variant="h2">
-                        Use last riddle clue to unlock the next step ❤️
+                        Now use bellow riddle to unlock the next map ❤️
+                      </Typography>
+                      <br /><br /><br />
+                      <Typography className="map-temp-text3" variant="h2">
+                        In the heart of the city, yet nature surrounds, <br />
+                        A place of joy where laughter sounds.<br />
+                        In your hometown, where memories stay,<br />
+                        Children’s voices, games in play.<br />
+
+                        A haven of green in urban embrace,<br />
+                        Where childhood dreams find their space.<br />
+                        Recall the times, so pure and stark,<br />
                       </Typography>
                     </>
                   )}
@@ -181,105 +192,34 @@ const showClockFunc = () => {
               </>
              ) : (
               <>
-             {/* <Box style={{ marginBottom: '2rem' }}>
-              <Typography className="map-temp-text1" variant="h2">
-                    New Position in Bucharest unlocked
-                </Typography>
-                <Typography className="map-temp-text2" variant="h2">
-                    check the marker to get to the rendezvous <br />
-                    point and wait for exact coordinates
-                </Typography>
-                <Typography className="map-temp-text" variant="h2">
-                    Requirements:
-                </Typography>
-                <Typography className="map-temp-text3" variant="h2">
-                    While I'm not a diamond, <br />
-                    I'm usually on a ring, <br />
-                    And this time you will use me <br />
-                    So you can see new things.
-                </Typography>
-               {clockDisplayed ? (
-                <>
-                  <Clock locale="ro-RO" size={400} value={clockValue} />
-                  
-                </>
-               ) : (
-                <>
-
-                  <Box>
-                    <Typography className="map-temp-text" variant="h2">
-                          The Riddle:
-                      </Typography>
-                      <Typography className="map-temp-text3" variant="h2">
-                        In the forest deep where ancient trees stand,
-                        By the murmuring fountain where water grand,
-                        Amidst nature's whispers, a secret it guards,
-                        A mystical marvel, where time flows in shards.
-
-                        Its face adorned with nature's touch,
-                        Hands like branches, reaching out much.
-                        In the heart of the woods, its presence serene,
-                        A keeper of time in a mystical scene.
-                    </Typography>
-                  </Box>
-                  <Form style={{ marginTop: '2rem' }}>
-                    <input
-                      type="text"
-                      className="show-map-btn-input"
-                      fluid
-                      placeholder='Write Your Answer'
-                      name="clockInput"
-                      id="clockInput"
-                      value={clockInput}
-                      onChange={handleChangeClockInput}
-                    />
-                  </Form>
-                  <Box style={{ marginTop: '1rem' }}>
-                    <Button
-                      className="map-submit-btn2"
-                      variant="contained"
-                      onClick={showClockFunc}
-                    >
-                      Submit
-                    </Button>
-							    </Box>
-                </>
-               ) }
-             </Box> */}
               </>
              )}
               {!showMap && showWinnieLoading ? (
-                <>
-                  {/* <img className="unicorn-img" src="images/unicorn.gif" /> */}
-              {/* <PinDropIcon className="pin-icon" /> */}
-                  
                   <>
                  <div style={{ marginTop: '2rem' }}>
                     <img className="gif-style" src="images/princess.gif" />
                     
                  </div>
                 </>
-             
-                </>
               ) : (
                  <>
-                  <Typography className="map-temp-text1" variant="h2">
-                    Answer bellow riddle to unlock next map.
-                  </Typography>
-                  <br /><br /><br /> 
-                  <Typography className="map-temp-text3" variant="h2">
-                    In the heart of the city, yet nature surrounds, <br />
-                    A place of joy where laughter sounds.<br />
-                    In your hometown, where memories stay,<br />
-                    Children’s voices, games in play.<br />
-
-                    A haven of green in urban embrace,<br />
-                    Where childhood dreams find their space.<br />
-                    Recall the times, so pure and stark,<br />
-                  </Typography>
                   <div style={{ marginTop: '5rem' }}>
+                <     Typography className="map-temp-text1" variant="h2">
+                        Bellow you will find a riddle indicating the day of rendezvous ❤️
+                      </Typography>
+                      <br /><br /><br />
+                      <Typography className="map-temp-text3" variant="h2">
+                        A specific day in the summer wood,<br />
+                        Eternal love feels so good.<br />
+                        Two soul mates join hearts, beating the same tune,<br />
+                        Mark this day in lovely June.<br />
+                        <br /><br /><br />
+                        A special day when love will shine,<br />
+                        A day you can never forget,<br />
+                        The day when two soul mates have met.<br />
+                      </Typography>
                     <ImageZoom
-                      src="images/monaco.jpg"
+                      src="images/harta7.jpg"
                       zoom={300}
                       style={{ marginLeft: '-2rem' }}
                     />
