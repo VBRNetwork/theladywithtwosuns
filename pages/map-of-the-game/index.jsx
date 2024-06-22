@@ -27,7 +27,7 @@ export default function MapOfTheGame() {
     const [showMap, setShowMap] = useState(false);
     const [showMapInput, setShowMapInput] = useState('');
     const [showWinnieLoading, setShowWinnieLoading] = useState(true);
-    const correctMapInput = 'home-town-childhood-parc';
+    const correctMapInput = 'brasov';
 
     const handleChangeMapInput = (e) => {
         setShowMapInput(e.target.value);
@@ -148,14 +148,12 @@ const showClockFunc = () => {
                       </Typography>
                       <br /><br /><br />
                       <Typography className="map-temp-text3" variant="h2">
-                        In the heart of the city, yet nature surrounds, <br />
-                        A place of joy where laughter sounds.<br />
-                        In your hometown, where memories stay,<br />
-                        Children’s voices, games in play.<br />
-
-                        A haven of green in urban embrace,<br />
-                        Where childhood dreams find their space.<br />
-                        Recall the times, so pure and stark,<br />
+                        In a time when memories are kept,<br />
+                        The date is when we first met.<br />
+                        A journey shared, where love did bloom,<br />
+                        A special place, not far from home.<br />
+                        The place is where we first loved true,<br />
+                        A moment cherished, just us two.<br />
                       </Typography>
                     </>
                   )}
@@ -195,31 +193,19 @@ const showClockFunc = () => {
               </>
              )}
               {!showMap && showWinnieLoading ? (
-                  <>
-                 <div style={{ marginTop: '2rem' }}>
-                    <img className="gif-style" src="images/princess.gif" />
-                    
-                 </div>
+                <>
+                  <div style={{ marginTop: '2rem' }}>
+                    <img className="gif-style" src="images/peterpan.gif" />
+                  </div>
                 </>
               ) : (
                  <>
                   <div style={{ marginTop: '5rem' }}>
-                <     Typography className="map-temp-text1" variant="h2">
-                        Bellow you will find a riddle indicating the day of rendezvous ❤️
-                      </Typography>
-                      <br /><br /><br />
-                      <Typography className="map-temp-text3" variant="h2">
-                        A specific day in the summer wood,<br />
-                        Eternal love feels so good.<br />
-                        Two soul mates join hearts, beating the same tune,<br />
-                        Mark this day in lovely June.<br />
-                        <br /><br /><br />
-                        A special day when love will shine,<br />
-                        A day you can never forget,<br />
-                        The day when two soul mates have met.<br />
+                <     Typography style={{ marginBottom: '2rem' }} className="map-temp-text1" variant="h2">
+                        Bellow you will find our next rendezvous place ❤️
                       </Typography>
                     <ImageZoom
-                      src="images/harta7.jpg"
+                      src="images/brasov.jpg"
                       zoom={300}
                       style={{ marginLeft: '-2rem' }}
                     />
