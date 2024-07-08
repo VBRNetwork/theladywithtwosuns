@@ -27,7 +27,7 @@ export default function MapOfTheGame() {
     const [showMap, setShowMap] = useState(false);
     const [showMapInput, setShowMapInput] = useState('');
     const [showWinnieLoading, setShowWinnieLoading] = useState(true);
-    const correctMapInput = 'brasov';
+    const correctMapInput = 'queen-of-intelligence-and-king-of-authority-in-herastrau-park';
 
     const handleChangeMapInput = (e) => {
         setShowMapInput(e.target.value);
@@ -53,6 +53,7 @@ export default function MapOfTheGame() {
   const [showPuzzle, setShowPuzzle] = useState(false);
   const [puzzleSolved, setPuzzleSolved] = useState(false);
   const [puzzleSolved2, setPuzzleSolved2] = useState(false);
+  const [puzzleSolved3, setPuzzleSolved3] = useState(false);
   const [showSecondPuzzle, setShowSecondPuzzle] = useState(false);
   const [puzzleInput, setPuzzleInput] = useState('');
   const correctPuzzleInput = 'puzzle';
@@ -80,8 +81,8 @@ const showPuzzleFunc = () => {
 }
 
 const puzzleSolvedFunc = () => {
-    setPuzzleSolved2(true);
-    localStorage.setItem('puzzleSolved2', true);
+    setPuzzleSolved3(true);
+    localStorage.setItem('puzzleSolved3', true);
     toast.success("Puzzle Solved", {
         icon: "🧩"
     }),
@@ -91,9 +92,9 @@ const puzzleSolvedFunc = () => {
 }
 
 React.useEffect(() => {
-  const puzzleSolved2 = localStorage.getItem('puzzleSolved2');
-  if (puzzleSolved2) {
-    setPuzzleSolved2(true);
+  const puzzleSolved3 = localStorage.getItem('puzzleSolved3');
+  if (puzzleSolved3) {
+    setPuzzleSolved3(true);
   }
 }, []);
 
@@ -121,7 +122,7 @@ const showClockFunc = () => {
                {showPuzzle ? (
                 <>
                   <JigsawPuzzle
-                    imageSrc="images/puzzle2.jpeg"
+                    imageSrc="images/puzzle3.jpg"
                     rows={2}
                     columns={3}
                     onSolved={() => puzzleSolvedFunc()}
@@ -129,7 +130,7 @@ const showClockFunc = () => {
                 </>
                ) : (
                 <>
-                  {!puzzleSolved2 ? (
+                  {!puzzleSolved3 ? (
                     <>
                       <Box style={{ marginTop: '1rem' }}>
                         <Button
@@ -148,19 +149,21 @@ const showClockFunc = () => {
                       </Typography>
                       <br /><br /><br />
                       <Typography className="map-temp-text3" variant="h2">
-                        In a time when memories are kept,<br />
-                        The date is when we first met.<br />
-                        A journey shared, where love did bloom,<br />
-                        A special place, not far from home.<br />
-                        The place is where we first loved true,<br />
-                        A moment cherished, just us two.<br />
+                        In a park where dreams are bright,<br />
+                        By the lake, in the city's light, <br />
+                        Blooms a village and a garden.<br />
+                        <br />
+                        You will need to take advantage,<br />
+                        Of two cards that you now manage.<br />
+                        Ten words you will have to find,<br />
+                        And the last two speak of a park.<br />
                       </Typography>
                     </>
                   )}
                 </>
                )}
              </Box>
-              {puzzleSolved2 ? (
+              {puzzleSolved3 ? (
                 <>
                   <Form style={{ marginTop: '2rem' }}>
                     <input
@@ -195,7 +198,7 @@ const showClockFunc = () => {
               {!showMap && showWinnieLoading ? (
                 <>
                   <div style={{ marginTop: '2rem' }}>
-                    <img className="gif-style" src="images/peterpan.gif" />
+                    <img className="gif-style" src="images/cinderella.gif" />
                   </div>
                 </>
               ) : (
@@ -205,7 +208,7 @@ const showClockFunc = () => {
                         Bellow you will find our next rendezvous place ❤️
                       </Typography>
                     <ImageZoom
-                      src="images/brasov.jpg"
+                      src="images/herastrau1.png"
                       zoom={300}
                       style={{ marginLeft: '-2rem' }}
                     />
