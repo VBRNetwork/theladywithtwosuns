@@ -27,7 +27,7 @@ export default function MapOfTheGame() {
     const [showMap, setShowMap] = useState(false);
     const [showMapInput, setShowMapInput] = useState('');
     const [showWinnieLoading, setShowWinnieLoading] = useState(true);
-    const correctMapInput = 'queen-of-intelligence-and-king-of-authority-in-herastrau-park';
+    const correctMapInput = 'love-life-new-beginnings';
 
     const handleChangeMapInput = (e) => {
         setShowMapInput(e.target.value);
@@ -51,9 +51,7 @@ export default function MapOfTheGame() {
   const [clockInput, setClockInput] = useState('');
   const correctClockInput = 'clock';
   const [showPuzzle, setShowPuzzle] = useState(false);
-  const [puzzleSolved, setPuzzleSolved] = useState(false);
-  const [puzzleSolved2, setPuzzleSolved2] = useState(false);
-  const [puzzleSolved3, setPuzzleSolved3] = useState(false);
+  const [puzzleSolved4, setPuzzleSolved4] = useState(false);
   const [showSecondPuzzle, setShowSecondPuzzle] = useState(false);
   const [puzzleInput, setPuzzleInput] = useState('');
   const correctPuzzleInput = 'puzzle';
@@ -81,8 +79,8 @@ const showPuzzleFunc = () => {
 }
 
 const puzzleSolvedFunc = () => {
-    setPuzzleSolved3(true);
-    localStorage.setItem('puzzleSolved3', true);
+    setPuzzleSolved4(true);
+    localStorage.setItem('puzzleSolved4', true);
     toast.success("Puzzle Solved", {
         icon: "🧩"
     }),
@@ -92,9 +90,9 @@ const puzzleSolvedFunc = () => {
 }
 
 React.useEffect(() => {
-  const puzzleSolved3 = localStorage.getItem('puzzleSolved3');
-  if (puzzleSolved3) {
-    setPuzzleSolved3(true);
+  const puzzleSolved4 = localStorage.getItem('puzzleSolved4');
+  if (puzzleSolved4) {
+    setPuzzleSolved4(true);
   }
 }, []);
 
@@ -122,7 +120,7 @@ const showClockFunc = () => {
                {showPuzzle ? (
                 <>
                   <JigsawPuzzle
-                    imageSrc="images/puzzle3.jpg"
+                    imageSrc="images/monaco1.jpg"
                     rows={2}
                     columns={3}
                     onSolved={() => puzzleSolvedFunc()}
@@ -130,7 +128,7 @@ const showClockFunc = () => {
                 </>
                ) : (
                 <>
-                  {!puzzleSolved3 ? (
+                  {!puzzleSolved4 ? (
                     <>
                       <Box style={{ marginTop: '1rem' }}>
                         <Button
@@ -145,25 +143,23 @@ const showClockFunc = () => {
                   ) : (
                     <>
                       <Typography className="map-temp-text1" variant="h2">
-                        Now use bellow riddle to unlock the next map ❤️
+                        Use the riddle from the last envelope to unlock next location ❤️
                       </Typography>
-                      <br /><br /><br />
-                      <Typography className="map-temp-text3" variant="h2">
-                        In a park where dreams are bright,<br />
-                        By the lake, in the city's light, <br />
-                        Blooms a village and a garden.<br />
+                      <br /><br />
+                      <Typography className="map-temp-text2" variant="h2">
+                        HINT: <br />
+                        The Jack of Clubs can represent a change in new and existing relationships.
                         <br />
-                        You will need to take advantage,<br />
-                        Of two cards that you now manage.<br />
-                        Ten words you will have to find,<br />
-                        And the last two speak of a park.<br />
+                        It is likely that your bond is strengthening.<br />
+                        The Jack of Clubs suggests that positive
+                        new beginnings in your love life are on the horizon for you.
                       </Typography>
                     </>
                   )}
                 </>
                )}
              </Box>
-              {puzzleSolved3 ? (
+              {puzzleSolved4 ? (
                 <>
                   <Form style={{ marginTop: '2rem' }}>
                     <input
@@ -198,7 +194,7 @@ const showClockFunc = () => {
               {!showMap && showWinnieLoading ? (
                 <>
                   <div style={{ marginTop: '2rem' }}>
-                    <img className="gif-style" src="images/cinderella.gif" />
+                    <img className="gif-style" src="images/little_mermaid.gif" />
                   </div>
                 </>
               ) : (
@@ -208,7 +204,7 @@ const showClockFunc = () => {
                         Bellow you will find our next rendezvous place ❤️
                       </Typography>
                     <ImageZoom
-                      src="images/herastrau1.png"
+                      src="images/harta9.jpg"
                       zoom={300}
                       style={{ marginLeft: '-2rem' }}
                     />
