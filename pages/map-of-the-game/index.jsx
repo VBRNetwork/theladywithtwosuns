@@ -27,7 +27,7 @@ export default function MapOfTheGame() {
     const [showMap, setShowMap] = useState(false);
     const [showMapInput, setShowMapInput] = useState('');
     const [showWinnieLoading, setShowWinnieLoading] = useState(true);
-    const correctMapInput = 'love-life-new-beginnings';
+    const correctMapInput = 'head-over-heels-for-you';
 
     const handleChangeMapInput = (e) => {
         setShowMapInput(e.target.value);
@@ -51,7 +51,7 @@ export default function MapOfTheGame() {
   const [clockInput, setClockInput] = useState('');
   const correctClockInput = 'clock';
   const [showPuzzle, setShowPuzzle] = useState(false);
-  const [puzzleSolved4, setPuzzleSolved4] = useState(false);
+  const [puzzleSolved5, setPuzzleSolved5] = useState(false);
   const [showSecondPuzzle, setShowSecondPuzzle] = useState(false);
   const [puzzleInput, setPuzzleInput] = useState('');
   const correctPuzzleInput = 'puzzle';
@@ -79,8 +79,8 @@ const showPuzzleFunc = () => {
 }
 
 const puzzleSolvedFunc = () => {
-    setPuzzleSolved4(true);
-    localStorage.setItem('puzzleSolved4', true);
+    setPuzzleSolved5(true);
+    localStorage.setItem('puzzleSolved5', true);
     toast.success("Puzzle Solved", {
         icon: "🧩"
     }),
@@ -90,9 +90,9 @@ const puzzleSolvedFunc = () => {
 }
 
 React.useEffect(() => {
-  const puzzleSolved4 = localStorage.getItem('puzzleSolved4');
-  if (puzzleSolved4) {
-    setPuzzleSolved4(true);
+  const puzzleSolved5 = localStorage.getItem('puzzleSolved5');
+  if (puzzleSolved5) {
+    setPuzzleSolved5(true);
   }
 }, []);
 
@@ -120,7 +120,7 @@ const showClockFunc = () => {
                {showPuzzle ? (
                 <>
                   <JigsawPuzzle
-                    imageSrc="images/monaco1.jpg"
+                    imageSrc="images/puzzle4.jpg"
                     rows={2}
                     columns={3}
                     onSolved={() => puzzleSolvedFunc()}
@@ -128,7 +128,7 @@ const showClockFunc = () => {
                 </>
                ) : (
                 <>
-                  {!puzzleSolved4 ? (
+                  {!puzzleSolved5 ? (
                     <>
                       <Box style={{ marginTop: '1rem' }}>
                         <Button
@@ -148,18 +148,21 @@ const showClockFunc = () => {
                       <br /><br />
                       <Typography className="map-temp-text2" variant="h2">
                         HINT: <br />
-                        The Jack of Clubs can represent a change in new and existing relationships.
                         <br />
-                        It is likely that your bond is strengthening.<br />
-                        The Jack of Clubs suggests that positive
-                        new beginnings in your love life are on the horizon for you.
+                        The Jack of Hearts is a court card that is deeply associated with love.<br />
+                        Mirroring the Knight of Cups in tarot,
+                        which represents a knight in shining armor. <br />
+                        <br />
+                        The Jack of Hearts connotes
+                        a young man who is head over heels for someone. <br />
+                        The card has an innocence to it, suggesting puppy love.
                       </Typography>
                     </>
                   )}
                 </>
                )}
              </Box>
-              {puzzleSolved4 ? (
+              {puzzleSolved5 ? (
                 <>
                   <Form style={{ marginTop: '2rem' }}>
                     <input
@@ -194,7 +197,7 @@ const showClockFunc = () => {
               {!showMap && showWinnieLoading ? (
                 <>
                   <div style={{ marginTop: '2rem' }}>
-                    <img className="gif-style" src="images/little_mermaid.gif" />
+                    <img className="gif-style" src="images/dalmatians.gif" />
                   </div>
                 </>
               ) : (
@@ -204,7 +207,7 @@ const showClockFunc = () => {
                         Bellow you will find our next rendezvous place ❤️
                       </Typography>
                     <ImageZoom
-                      src="images/harta9.jpg"
+                      src="images/harta10.jpg"
                       zoom={300}
                       style={{ marginLeft: '-2rem' }}
                     />
