@@ -29,8 +29,9 @@ export default function MapOfTheGame() {
     const [showWinnieLoading, setShowWinnieLoading] = useState(true);
     const [showPuzzle, setShowPuzzle] = useState(false);
     const [puzzleSolved5, setPuzzleSolved5] = useState(false);
+    const [puzzleSolved6, setPuzzleSolved6] = useState(false);
     const [showInitialGif, setShowInitialGif] = useState(true);
-    const correctMapInput = 'head-over-heels-for-you';
+    const correctMapInput = 'renewal-in-eternal-love';
 
     React.useEffect(() => {
       setTimeout(() => {
@@ -39,9 +40,9 @@ export default function MapOfTheGame() {
     }, []);
     
     React.useEffect(() => {
-      const puzzleSolved5 = localStorage.getItem('puzzleSolved5');
-      if (puzzleSolved5) {
-        setPuzzleSolved5(true);
+      const puzzleSolved6 = localStorage.getItem('puzzleSolved6');
+      if (puzzleSolved6) {
+        setPuzzleSolved6(true);
       }
     }, []);
 
@@ -62,8 +63,8 @@ export default function MapOfTheGame() {
     }
 
 const puzzleSolvedFunc = () => {
-    setPuzzleSolved5(true);
-    localStorage.setItem('puzzleSolved5', true);
+    setPuzzleSolved6(true);
+    localStorage.setItem('puzzleSolved6', true);
     toast.success("Puzzle Solved", {
         icon: "🧩"
     }),
@@ -87,7 +88,7 @@ const puzzleSolvedFunc = () => {
                   {showPuzzle ? (
                     <>
                       <JigsawPuzzle
-                        imageSrc="images/puzzle4.jpg"
+                        imageSrc="images/puzzle5.jpg"
                         rows={2}
                         columns={3}
                         onSolved={() => puzzleSolvedFunc()}
@@ -95,7 +96,7 @@ const puzzleSolvedFunc = () => {
                     </>
                   ) : (
                     <>
-                      {!puzzleSolved5 ? (
+                      {!puzzleSolved6 ? (
                         <>
                           <Box style={{ marginTop: '1rem' }}>
                             <Button
@@ -116,20 +117,17 @@ const puzzleSolvedFunc = () => {
                           <Typography className="map-temp-text2" variant="h2">
                             HINT: <br />
                             <br />
-                            The Jack of Hearts is a court card that is deeply associated with love.<br />
-                            Mirroring the Knight of Cups in tarot,
-                            which represents a knight in shining armor. <br />
+                            For those in a relationship, the Jack of Diamonds can indicate a renewal in love.<br />
                             <br />
-                            The Jack of Hearts connotes
-                            a young man who is head over heels for someone. <br />
-                            The card has an innocence to it, suggesting puppy love.
+                            You both might be embarking on an adventure,
+                            moving house, or planning something exciting for the future. 
                           </Typography>
                         </>
                       )}
                     </>
                   )}
                 </Box>
-                  {puzzleSolved5 ? (
+                  {puzzleSolved6 ? (
                     <>
                       <Form style={{ marginTop: '2rem' }}>
                         <input
@@ -164,7 +162,7 @@ const puzzleSolvedFunc = () => {
                   {!showMap && showWinnieLoading ? (
                     <>
                       <div style={{ marginTop: '2rem' }}>
-                        <img className="gif-style" src="images/dalmatians.gif" />
+                        <img className="gif-style" src="images/beauty.gif" />
                       </div>
                     </>
                   ) : (
@@ -174,7 +172,7 @@ const puzzleSolvedFunc = () => {
                             Bellow you will find our next rendezvous place ❤️
                           </Typography>
                         <ImageZoom
-                          src="images/harta10.jpg"
+                          src="images/harta11.jpg"
                           zoom={300}
                           style={{ marginLeft: '-2rem' }}
                         />
