@@ -28,10 +28,9 @@ export default function MapOfTheGame() {
     const [showMapInput, setShowMapInput] = useState('');
     const [showWinnieLoading, setShowWinnieLoading] = useState(true);
     const [showPuzzle, setShowPuzzle] = useState(false);
-    const [puzzleSolved5, setPuzzleSolved5] = useState(false);
-    const [puzzleSolved6, setPuzzleSolved6] = useState(false);
+    const [puzzleSolved7, setPuzzleSolved7] = useState(false);
     const [showInitialGif, setShowInitialGif] = useState(true);
-    const correctMapInput = 'renewal-in-eternal-love';
+    const correctMapInput = 'passionate-for-the-princess';
 
     React.useEffect(() => {
       setTimeout(() => {
@@ -40,9 +39,9 @@ export default function MapOfTheGame() {
     }, []);
     
     React.useEffect(() => {
-      const puzzleSolved6 = localStorage.getItem('puzzleSolved6');
-      if (puzzleSolved6) {
-        setPuzzleSolved6(true);
+      const puzzleSolved7 = localStorage.getItem('puzzleSolved7');
+      if (puzzleSolved7) {
+        setPuzzleSolved7(true);
       }
     }, []);
 
@@ -63,8 +62,8 @@ export default function MapOfTheGame() {
     }
 
 const puzzleSolvedFunc = () => {
-    setPuzzleSolved6(true);
-    localStorage.setItem('puzzleSolved6', true);
+    setPuzzleSolved7(true);
+    localStorage.setItem('puzzleSolved7', true);
     toast.success("Puzzle Solved", {
         icon: "🧩"
     }),
@@ -88,7 +87,7 @@ const puzzleSolvedFunc = () => {
                   {showPuzzle ? (
                     <>
                       <JigsawPuzzle
-                        imageSrc="images/puzzle5.jpg"
+                        imageSrc="images/puzzle6.jpeg"
                         rows={2}
                         columns={3}
                         onSolved={() => puzzleSolvedFunc()}
@@ -96,7 +95,7 @@ const puzzleSolvedFunc = () => {
                     </>
                   ) : (
                     <>
-                      {!puzzleSolved6 ? (
+                      {!puzzleSolved7 ? (
                         <>
                           <Box style={{ marginTop: '1rem' }}>
                             <Button
@@ -117,17 +116,18 @@ const puzzleSolvedFunc = () => {
                           <Typography className="map-temp-text2" variant="h2">
                             HINT: <br />
                             <br />
-                            For those in a relationship, the Jack of Diamonds can indicate a renewal in love.<br />
-                            <br />
-                            You both might be embarking on an adventure,
-                            moving house, or planning something exciting for the future. 
+                            If the King of Clubs represents your significant other,
+                            you can rest assured that this person 
+                            is very passionate about you. <br />
+                            They may want to take care of you 
+                            and build a life together.
                           </Typography>
                         </>
                       )}
                     </>
                   )}
                 </Box>
-                  {puzzleSolved6 ? (
+                  {puzzleSolved7 ? (
                     <>
                       <Form style={{ marginTop: '2rem' }}>
                         <input
@@ -162,7 +162,7 @@ const puzzleSolvedFunc = () => {
                   {!showMap && showWinnieLoading ? (
                     <>
                       <div style={{ marginTop: '2rem' }}>
-                        <img className="gif-style" src="images/beauty.gif" />
+                        <img className="gif-style" src="images/lady-and-the-tramp.gif" />
                       </div>
                     </>
                   ) : (
@@ -172,7 +172,7 @@ const puzzleSolvedFunc = () => {
                             Bellow you will find our next rendezvous place ❤️
                           </Typography>
                         <ImageZoom
-                          src="images/harta11.jpg"
+                          src="images/harta12.png"
                           zoom={300}
                           style={{ marginLeft: '-2rem' }}
                         />
